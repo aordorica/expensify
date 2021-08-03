@@ -1,10 +1,12 @@
 //Filters Reducer
 
+import moment from "moment";
+
 const filterReducerDefaultState = {
     text: "",
     sortBy: "date",
-    startDate: undefined,
-    endDate: undefined,
+    startDate: moment().startOf('week'),
+    endDate: moment().endOf('week'),
 };
 
 export default (state = filterReducerDefaultState, action) => {

@@ -6,10 +6,10 @@ import { SingleDatePicker } from 'react-dates';
 
 export default class ExpenseForm extends React.Component {
     state = {
-        description: '',
-        amount: '',
-        note: '',
-        createdAt: moment(),
+        description: this.props.expense ? this.props.expense.description : '',
+        amount: this.props.expense ? (this.props.expense.amount / 100).toString() : '',
+        note: this.props.expense ? this.props.expense.note : '',
+        createdAt: this.props.expense ? moment(this.props.expense.createdAt) : moment(),
         calendarFocused: false,
         error: ''
     }
@@ -60,6 +60,7 @@ export default class ExpenseForm extends React.Component {
     render() {
         return (
             <div>
+                {/* {console.log(this.props.expense)} */}
                 {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.onSubmit}>
                     <input 
