@@ -10,16 +10,6 @@ import { addExpense, editExpense, removeExpense } from "./actions/expenses";
 
 const store = configureStore();
 
-store.dispatch(
-    addExpense({ description: "Cat Food", amount: 186000, createdAt: 1 })
-);
-store.dispatch(
-    addExpense({ description: "gas bill", amount: 5000, createdAt: 5 })
-);
-store.dispatch(
-    addExpense({ description: "water bill", amount: 255, createdAt: -2 })
-);
-
 // console.log(store.getState());
 const jsx = (
     <Provider store={store}>
